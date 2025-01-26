@@ -1,0 +1,37 @@
+/* Scrollbar styles for dark theme */
+.dark ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a;
+    border-radius: 10px;
+    border: 2px solid #2d2d2d;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.light ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.light ::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.light ::-webkit-scrollbar-thumb {
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    border: 2px solid #f0f0f0;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+  
