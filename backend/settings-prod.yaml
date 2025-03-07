@@ -1,0 +1,67 @@
+version: 1.0.0
+log_level: debug
+mount_point: ${TELLY_MOUNT_POINT}
+
+otel:
+  enabled: true
+  dsn: ${TELLY_SENTRY_DSN}
+  batch: true
+  exporter: remote
+
+server:
+  env_name: prod
+  port: ${TELLY_PORT:8001}
+
+  cors:
+    enabled: true
+    allow_origins: [ "*" ]
+    allow_methods: [ "*" ]
+    allow_headers: [ "*" ]
+    allow_credentials: true
+
+  auth:
+    realm: Workbench
+    client_id: ${TELLY_AUTH_CLIENT_ID}
+    client_secret: ${TELLY_AUTH_CLIENT_SECRET}
+    server_url: ${TELLY_AUTH_SERVER_URL}
+
+db:
+  vector_db:
+    connection_string: ${TELLY_VECTOR_DB}
+    collection_name: confluence
+    retriever:
+      type: similarity
+      k: 5
+
+  app_db:
+    connection_string: ${TELLY_APP_DB}
+    job_table_name: jobs
+    user_table_name: user
+    session_table_name: chat_session
+    history_table_name: chat_session_history
+    user_pass_salt: ${TELLY_USER_PASS_SALT}
+    permission_table_name: confluence_permission
+
+gcp:
+  project_id: ${GOOGLE_CLOUD_PROJECT}
+  logger_name: telly-prod
+  vertex:
+    service_account_path: ${GOOGLE_APPLICATION_CREDENTIALS:}
+
+    embedding:
+      model: text-embedding-004
+      project_id: ${GOOGLE_CLOUD_PROJECT}
+      location: europe-west3
+
+    chat_memory:
+      max_token_limit: 4000
+
+    model:
+      debug: false
+      verbose: false
+      streaming: true
+      name: gemini-1.5-flash
+      top_p: 0.9
+      top_k: 40
+      temperature: 1.0
+      max_output_tokens: 1500
