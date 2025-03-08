@@ -1,0 +1,126 @@
+### Data Loading Endpoint
+
+GET http://{{HOST}}:{{PORT}}/load
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+
+### Logout Endpoint
+
+POST http://{{HOST}}:{{PORT}}/logout
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+
+### Chat Session Endpoints
+
+### Retrieve all chat sessions per user
+
+GET http://{{HOST}}:{{PORT}}/sessions/test@user.com
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+
+### Retrieve chat session history
+
+GET http://{{HOST}}:{{PORT}}/sessions/{{SESSION_ID}}/history
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+
+### Invalidate chat session
+
+POST http://{{HOST}}:{{PORT}}/sessions/{{SESSION_ID}}/invalidate
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+
+### Rename chat session
+
+POST http://{{HOST}}:{{PORT}}/sessions/{{SESSION_ID}}/rename
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+Content-Type: application/json
+
+{
+  "new_session_name": "NewTestSession"
+}
+
+### Create new chat session
+
+PUT http://{{HOST}}:{{PORT}}/sessions/{{SESSION_ID}}/create
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+Content-Type: application/json
+
+{
+  "session_name": "MySessionName"
+}
+
+### Open existing chat session
+
+PUT http://{{HOST}}:{{PORT}}/sessions/{{SESSION_ID}}/open
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+
+### Remove chat session
+
+DELETE http://{{HOST}}:{{PORT}}/sessions/{{SESSION_ID}}/remove
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+
+## Healthcheck Endpoint
+
+### Perform all healthchecks
+
+GET http://{{HOST}}:{{PORT}}/health
+
+### Schedule a new session purging job
+
+PUT http://{{HOST}}:{{PORT}}/jobs
+Content-Type: application/json
+
+{
+  "job_type": "session_purge",
+  "job_name": "MySessionPurgeJob",
+  "next_run_time": "2024-03-31T04:21:40"
+}
+
+### Remove a scheduled job
+
+DELETE http://{{HOST}}:{{PORT}}/jobs/{{SESSION_ID}}
+
+### Retrieve all jobs
+
+GET http://{{HOST}}:{{PORT}}/jobs
+
+### List feedbacks
+
+GET http://{{HOST}}:{{PORT}}/feedback/{{SESSION_ID}}
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+
+### Provide feedback (POSITIVE)
+
+POST http://{{HOST}}:{{PORT}}/feedback
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+Content-Type: application/json
+
+{
+  "message_id": {{MESSAGE_ID}},
+  "session_id": "{{SESSION_ID}}"
+}
+
+### Provide feedback (NEGATIVE)
+
+POST http://{{HOST}}:{{PORT}}/feedback
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+Content-Type: application/json
+
+{
+  "message_id": {{MESSAGE_ID}},
+  "session_id": "{{SESSION_ID}}",
+  "feedback": "negative"
+}
+
+### Remove feedback
+
+POST http://{{HOST}}:{{PORT}}/feedback
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+Content-Type: application/json
+
+{
+  "message_id": {{MESSAGE_ID}},
+  "session_id": "{{SESSION_ID}}"
+}
+
+### Ask the chatbot
+
+GET http://{{HOST}}:{{PORT}}/ask?question=Hello&session_id={{SESSION_ID}}
+Authorization: Basic {{TEST_ACC_USERNAME}} {{TEST_ACC_PASSWORD}}
+Accept: text/event-stream
