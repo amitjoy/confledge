@@ -1,0 +1,84 @@
+@import "./animations.css";
+@import "./scrollbar.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    font-family: system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+}
+
+body {
+    @apply font-sans;
+}
+
+.light body {
+    @apply bg-white text-black;
+}
+
+@layer components {
+    .btn-height {
+        height: 32px;
+    }
+
+    .input-height {
+        height: 32px;
+    }
+}
+
+.Toastify__toast-body {
+    font-family: 'Lato';
+}
+
+/* Styles for tables */
+.qa-question-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.qa-question-content th, .qa-question-content td {
+    border: 1px solid #a0a0a0;
+    padding: 8px;
+}
+
+.qa-question-content th {
+    text-align: left;
+}
+
+/* Styles for lists */
+.qa-question-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 1em;
+}
+
+.qa-question-content ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin-bottom: 1em;
+}
+
+.qa-question-content li {
+    margin-bottom: 5px;
+}
+
+/* Styles for code blocks */
+.qa-question-content pre {
+    background-color: #2d2d2d;
+    padding: 1em;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.qa-question-content code {
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
