@@ -1,96 +1,130 @@
-# Byte-compiled / optimized files
+# Python
+############
 __pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
+*.pyc
+*.pyo
+*.pyd
 .Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.benchmarks
+# Distribution / packaging
+dist/
 build/
 develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
 sdist/
-var/
 wheels/
-pip-wheel-metadata/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-media/ # If serving user-uploaded media files locally
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
 
 # IPython
-profile_default/
-ipython_config.py
+###########
+.ipynb_checkpoints
+.ipython_history
+notebooks/.data/
 
-# pyenv
-.python-version
-
-# pipenv
-# According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-# However, in case of collaboration, if having platform-specific dependencies or dependencies
-# having no cross-platform support, pipenv may install dependencies that don't work, or not
-# install all needed dependencies.
-# Pipfile.lock
-
-# poetry
-# Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-# This is especially recommended for binary packages to ensure reproducibility, and is more
-# commonly ignored for libraries.
-# https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-# poetry
-
+# Editor directories and files
+##############################
+.vscode/
+.idea/
+*.iml
+*.iws
+*.orig
+*.swp
+*.swo
 .DS_Store
+.sass-cache/
+.yarn-cache/
+
+# OS generated files
+####################
+.DS_Store
+.localized
+Thumbs.db
+
+# TypeScript / Frontend
+#########################
+node_modules/
+dist/ # common output directory for builds
+build/ # another common output directory
+.next/ # Next.js build output
+out/ # Next.js export output
+.nuxt/ # Nuxt.js build output
+.cache/ # various caching directories
+.parcel-cache/ # Parcel build cache
+
+# yarn
+yarn-error.log
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# npm
+npm-debug.log*
+!debug.log
+
+# pnpm
+pnpm-debug.log*
+.pnpm-store/
+
+# dependencies
+/web_modules/
+
+# typescript
+*.tsbuildinfo
+
+# dotenv files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# supabase
+.supabase/
+
+# volumes
+/volumes
+
+# misc
+*.log
