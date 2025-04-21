@@ -58,8 +58,8 @@ Thumbs.db
 # TypeScript / Frontend
 #########################
 node_modules/
-dist/ # common output directory for builds
-build/ # another common output directory
+dist/ # common output directory for builds (includes generated CSS from Tailwind)
+build/ # another common output directory (includes generated CSS from Tailwind)
 .next/ # Next.js build output
 out/ # Next.js export output
 .nuxt/ # Nuxt.js build output
@@ -126,5 +126,4 @@ pnpm-debug.log*
 # volumes
 /volumes
 
-# misc
-*.log
+# Tailwind CSS / PostCSS
